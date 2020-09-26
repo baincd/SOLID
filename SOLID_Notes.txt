@@ -1,0 +1,71 @@
+The one thing to allow software to not rot is to clean code
+  - not safe for devs - may break something, and then it's their fault!
+  - don't ask for permission to keep code clean!
+
+# Design Smells
+Rigidity - hard to change
+Fragile - breaks in unexpected ways (can be seen by managers/customers)
+Immobility -
+Viscosity - easier to do the wrong thing than the right thing
+
+# Design Smells Remedies
+- Manage Dependencies!
+
+# Comments
+necessary comments: code that does not describe/express itself well
+
+Comments => failure (unclean code)
+
+Name:
+findById(id) - good, describes what it does
+binarysearch(id) - bad, describe how it does
+
+Method should do one thing, name should describe everything it does
+
+The only way to go fast is to go well
+
+Microservices - not a good decoupling technique.  OOD for decoupling, then modules can be made into microservices
+- microservices provides various benefits (scalablity, rebustness, etc), but don't do just to decouple
+
+Keep return values to return the value of the function.  Exceptional cases should throw exceptions - this avoids a bunch of if/else throughout the call stack, and lets the Exception go down the call stack to the point that can handle it
+
+When asked how long a change will make, provide 3 numbers:
+- Best Case
+- Worst Case
+- Nominal Case
+
+TDD => double-entry bookkeeping (every tx entered in asset & liability _together_, subtract to zero)
+
+SRP = A class should have one and only one reason to change (one actor that is source of change)
+  - gather things that change for the same reason
+  - separate things that change for different reasons
+
+Architects that don't write code are not architects (devs will not listen to them)
+  - does not need to write code all the time, but should take some coding tasks
+
+OCP - can be extended without modifying
+- separate high-level policy from low-level details
+
+abstract things that are going to change
+
+LSP - Liskov Substitution Principle - subtype is substitutable for a base class (without clients knowing the difference)
+
+Inheritance
+- NOT is-a
+- behaves-as-a
+
+Violations of LSV are latent violation of OCP
+
+  - how to avoid : avoid methods and derivitives that you cannot implement
+    - everything the base class can do, the derivitive must be able to do
+
+  - there should be no if statement to see what implementation is being used
+
+ISP - Interface Segregation Principle
+  - don't depend on things you don't need
+
+DIP - Dependency Inversion Principle
+  - Low level details should depend on High Level Policy
+  - If you can replace a critical component of system with a stub or mock => DIP
+
+Interfaces are more tightly coupled to their clients then their implementations
